@@ -55,3 +55,1839 @@ __history/
 
 # Castalia statistics file
 *.stat
+
+unit pUnit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, Grids, DBGrids, OleServer, ExcelXP, jpeg,
+  ExtCtrls, ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    ExcelApplication1: TExcelApplication;
+    ADOQuery5: TADOQuery;
+    ADOQuery6: TADOQuery;
+    DataSource4: TDataSource;
+    Timer1: TTimer;
+    ADOConnection1: TADOConnection;
+    ADOQuery4: TADOQuery;
+    ADOQuery7: TADOQuery;
+    ADOQuery9: TADOQuery;
+    ADOQuery2: TADOQuery;
+    DataSource1: TDataSource;
+    DataSource2: TDataSource;
+    ADOQuery3: TADOQuery;
+    DataSource3: TDataSource;
+    ADOConnection2: TADOConnection;
+    ADOQuery8: TADOQuery;
+    ADOQuery1: TADOQuery;
+    DataSource5: TDataSource;
+    DataSource6: TDataSource;
+    DataSource7: TDataSource;
+    DataSource8: TDataSource;
+    DataSource9: TDataSource;
+    ADOQuery10: TADOQuery;
+    DataSource10: TDataSource;
+    ADOQuery11: TADOQuery;
+    DataSource11: TDataSource;
+    ADOQuery12: TADOQuery;
+    DataSource12: TDataSource;
+    ADOQuery13: TADOQuery;
+    DataSource13: TDataSource;
+    ADOQuery14: TADOQuery;
+    ADOQuery15: TADOQuery;
+    DataSource14: TDataSource;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label21: TLabel;
+    Edit4: TEdit;
+    Label22: TLabel;
+    Edit5: TEdit;
+    Button10: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Label23: TLabel;
+    Label27: TLabel;
+    Label29: TLabel;
+    Label24: TLabel;
+    Label28: TLabel;
+    Label30: TLabel;
+    Image1: TImage;
+    Panel7: TPanel;
+    ProgressBar1: TProgressBar;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label1: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    DBGrid1: TDBGrid;
+    DBGrid2: TDBGrid;
+    DBGrid3: TDBGrid;
+    Button9: TButton;
+    Button12: TButton;
+    TabSheet5: TTabSheet;
+    Label19: TLabel;
+    Label40: TLabel;
+    Label72: TLabel;
+    Label39: TLabel;
+    Label36: TLabel;
+    Label34: TLabel;
+    Label8: TLabel;
+    Label35: TLabel;
+    Button2: TButton;
+    DBGrid10: TDBGrid;
+    Button3: TButton;
+    DBGrid11: TDBGrid;
+    Button1: TButton;
+    DBGrid12: TDBGrid;
+    Button11: TButton;
+    DBGrid4: TDBGrid;
+    TabSheet2: TTabSheet;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label31: TLabel;
+    Label41: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label15: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Button16: TButton;
+    Button17: TButton;
+    DBGrid6: TDBGrid;
+    DBGrid7: TDBGrid;
+    DBGrid8: TDBGrid;
+    DBGrid9: TDBGrid;
+    StringGrid2: TStringGrid;
+    TabSheet3: TTabSheet;
+    GroupBox1: TGroupBox;
+    Label80: TLabel;
+    Label81: TLabel;
+    Label82: TLabel;
+    Label83: TLabel;
+    Label64: TLabel;
+    Label65: TLabel;
+    Label87: TLabel;
+    Label86: TLabel;
+    Label85: TLabel;
+    Label84: TLabel;
+    Label88: TLabel;
+    Label89: TLabel;
+    Label90: TLabel;
+    Label91: TLabel;
+    Label66: TLabel;
+    Label124: TLabel;
+    Label126: TLabel;
+    Label127: TLabel;
+    Label128: TLabel;
+    Label129: TLabel;
+    Label130: TLabel;
+    Label131: TLabel;
+    Label132: TLabel;
+    Label125: TLabel;
+    Label98: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label101: TLabel;
+    Label102: TLabel;
+    Label138: TLabel;
+    Label133: TLabel;
+    Label134: TLabel;
+    Label135: TLabel;
+    Label136: TLabel;
+    Label137: TLabel;
+    Label139: TLabel;
+    Label103: TLabel;
+    Label104: TLabel;
+    Label105: TLabel;
+    Label106: TLabel;
+    Label107: TLabel;
+    Label54: TLabel;
+    Label55: TLabel;
+    Label140: TLabel;
+    Label141: TLabel;
+    Label142: TLabel;
+    Label143: TLabel;
+    Label144: TLabel;
+    Label145: TLabel;
+    Label146: TLabel;
+    Label147: TLabel;
+    Label148: TLabel;
+    Label149: TLabel;
+    Label150: TLabel;
+    Label151: TLabel;
+    Label152: TLabel;
+    Label153: TLabel;
+    Label154: TLabel;
+    Label155: TLabel;
+    Label156: TLabel;
+    Label157: TLabel;
+    Label158: TLabel;
+    Label159: TLabel;
+    Label160: TLabel;
+    Label161: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label20: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label50: TLabel;
+    Label51: TLabel;
+    Label53: TLabel;
+    Label56: TLabel;
+    Label58: TLabel;
+    Label60: TLabel;
+    Label61: TLabel;
+    Label62: TLabel;
+    Label68: TLabel;
+    Label69: TLabel;
+    Label73: TLabel;
+    Label74: TLabel;
+    Label75: TLabel;
+    Label76: TLabel;
+    Label77: TLabel;
+    Label78: TLabel;
+    Label92: TLabel;
+    Label93: TLabel;
+    Label94: TLabel;
+    Label95: TLabel;
+    Label96: TLabel;
+    Label97: TLabel;
+    Label109: TLabel;
+    Label111: TLabel;
+    Label113: TLabel;
+    Label115: TLabel;
+    Label117: TLabel;
+    Label118: TLabel;
+    Label119: TLabel;
+    Label121: TLabel;
+    Label122: TLabel;
+    Label123: TLabel;
+    Label162: TLabel;
+    Label163: TLabel;
+    Label164: TLabel;
+    Label165: TLabel;
+    Label166: TLabel;
+    Label167: TLabel;
+    Label168: TLabel;
+    Label169: TLabel;
+    Label170: TLabel;
+    Label171: TLabel;
+    Label172: TLabel;
+    Label173: TLabel;
+    Label174: TLabel;
+    GroupBox3: TGroupBox;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label114: TLabel;
+    Label116: TLabel;
+    Label70: TLabel;
+    Label71: TLabel;
+    GroupBox4: TGroupBox;
+    Label52: TLabel;
+    Label63: TLabel;
+    Label67: TLabel;
+    Label57: TLabel;
+    Label59: TLabel;
+    Label79: TLabel;
+    Label108: TLabel;
+    Label110: TLabel;
+    Label112: TLabel;
+    Label120: TLabel;
+    TabSheet4: TTabSheet;
+    Panel5: TPanel;
+    Button18: TButton;
+    Panel6: TPanel;
+    StringGrid1: TStringGrid;
+    TabSheet7: TTabSheet;
+    Panel3: TPanel;
+    Button5: TButton;
+    Panel4: TPanel;
+    StringGrid3: TStringGrid;
+    TabSheet8: TTabSheet;
+    Label11: TLabel;
+    Edit2: TEdit;
+    Label14: TLabel;
+    Edit3: TEdit;
+    Edit1: TEdit;
+    Button4: TButton;
+    Button6: TButton;
+    DBGrid5: TDBGrid;
+    StringGrid4: TStringGrid;
+    Panel8: TPanel;
+    Panel9: TPanel;
+    Button19: TButton;
+    DBGrid13: TDBGrid;
+    procedure Button2Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure Button14Click(Sender: TObject);
+    procedure Button17Click(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
+    procedure Button18Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button19Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  k:integer;
+  t:array[1..60,1..20] of real;
+  s:array[1..60]of String;
+  t1:array[1..200,1..40]of string;
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  ADOQuery11.close;
+  ADOQuery11.SQL.Clear;
+  ADOQuery11.SQL.add('select TD002,TD003,TD005,TD008 ');                                // 查預計進貨
+  ADOQuery11.sql.add('from PURTD,PURTC');
+  ADOQuery11.sql.add('WHERE TC024>:s1');
+  ADOQuery11.sql.add('AND TC024<:s2');
+  ADOQuery11.sql.add('AND TD018=:s3');
+  ADOQuery11.sql.add('AND TD001=:s4');
+  ADOQuery11.sql.add('AND TD002=TC002');
+  ADOQuery11.sql.add('AND TD001=TC001');
+  ADOQuery11.sql.add('AND TD034>:s5');
+  ADOQuery11.sql.add('order by TD002');
+  ADOQuery11.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery11.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery11.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery11.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery11.Parameters.parambyname('s5').VALUE:='6';
+  ADOQuery11.open;
+
+  Label19.CAPTION:=INTTOSTR(ADOQuery11.RECORDCOUNT);
+  IF ADOQuery11.RECORDCOUNT>0 THEN Label40.CAPTION:='採購單來源異常'
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);
+var
+  s1:array[1..1000,1..2] of string;
+  t2:array[1..1000,1..12] of string;
+  i,j,l,m,n:integer;
+begin
+  StringGrid4.Cells[0,0]:='品號';
+  StringGrid4.Cells[1,0]:='01';
+  StringGrid4.Cells[2,0]:='02';
+  StringGrid4.Cells[3,0]:='03';
+  StringGrid4.Cells[4,0]:='04';
+  StringGrid4.Cells[5,0]:='05';
+  StringGrid4.Cells[6,0]:='06';
+  StringGrid4.Cells[7,0]:='07';
+  StringGrid4.Cells[8,0]:='08';
+  StringGrid4.Cells[9,0]:='09';
+  StringGrid4.Cells[10,0]:='10';
+  StringGrid4.Cells[11,0]:='11';
+  StringGrid4.Cells[12,0]:='12';
+
+  ADOQuery14.close;
+  ADOQuery14.SQL.Clear;
+  ADOQuery14.SQL.add('select TH004,TH002,TH018,TH015,TG007');                                // 查進貨單價
+  ADOQuery14.sql.add('from PURTH,PURTG');
+  ADOQuery14.sql.add('WHERE TH004>:s1');
+  ADOQuery14.sql.add('AND TH004<:s2');
+  ADOQuery14.sql.add('AND TH002>:s3');
+  ADOQuery14.sql.add('AND TH002<:s4');
+  ADOQuery14.sql.add('AND TG001=TH001');
+  ADOQuery14.sql.add('AND TG002=TH002');
+  ADOQuery14.sql.add('ORDER BY TH004,TH002');
+  ADOQuery14.Parameters.parambyname('s1').VALUE:='4';
+  ADOQuery14.Parameters.parambyname('s2').VALUE:='6';
+  ADOQuery14.Parameters.parambyname('s3').VALUE:=Edit1.text+'010000';
+  ADOQuery14.Parameters.parambyname('s4').VALUE:=Edit1.text+'129999';
+  ADOQuery14.open;
+  ADOQuery14.first;
+  i:=1;
+  IF ADOQuery14.RECORDCOUNT>0 THEN
+    begin
+      s1[i,1]:=ADOQuery14.Fields[0].Value;
+      s1[i,2]:=copy(ADOQuery14.Fields[1].Value,1,6);
+      ADOQuery14.next;
+      for j:= 1 to ADOQuery14.RECORDCOUNT do
+        begin
+          if (s1[i,1]<>ADOQuery14.Fields[0].Value) then
+            begin
+              i:=i+1;
+              s1[i,1]:=ADOQuery14.Fields[0].Value;
+              s1[i,2]:=copy(ADOQuery14.Fields[1].Value,1,6);
+            end;
+          ADOQuery14.next;
+        end;
+    end;
+
+  StringGrid4.rowcount:=i+2;
+  Label11.caption:=inttostr(i);
+  ProgressBar1.Max:=i;
+  ProgressBar1.position:=0;
+  for j :=1 to i do
+    begin
+      StringGrid4.Cells[0,j]:=s1[j,1];
+      for l:=1 to 9 do
+        begin
+          ADOQuery14.close;
+          ADOQuery14.SQL.Clear;
+          ADOQuery14.SQL.add('select TH004,TH002,TH018,TH015,TG007');                                // 查進貨單價
+          ADOQuery14.sql.add('from PURTH,PURTG');
+          ADOQuery14.sql.add('WHERE TH004=:s1');
+          ADOQuery14.sql.add('AND TH002>:s3');
+          ADOQuery14.sql.add('AND TH002<:s4');
+          ADOQuery14.sql.add('AND TG001=TH001');
+          ADOQuery14.sql.add('AND TG002=TH002');
+          ADOQuery14.sql.add('ORDER BY TH004,TH002');
+          ADOQuery14.Parameters.parambyname('s1').VALUE:=s1[j,1];
+          ADOQuery14.Parameters.parambyname('s3').VALUE:=Edit1.text+'0'+inttostr(l)+'0000';
+          ADOQuery14.Parameters.parambyname('s4').VALUE:=Edit1.text+'0'+inttostr(l)+'9999';
+          ADOQuery14.open;
+          IF ADOQuery14.RECORDCOUNT>0 THEN
+            begin
+              for n:= 1 to ADOQuery14.RECORDCOUNT do
+                begin
+                  StringGrid4.Cells[l,j]:=ADOQuery14.Fields[2].asstring;
+                end;
+            end;
+        end;
+
+      for l:=10 to 12 do
+        begin
+          ADOQuery14.close;
+          ADOQuery14.SQL.Clear;
+          ADOQuery14.SQL.add('select TH004,TH002,TH018,TH015,TG007');                                // 查進貨單價
+          ADOQuery14.sql.add('from PURTH,PURTG');
+          ADOQuery14.sql.add('WHERE TH004=:s1');
+          ADOQuery14.sql.add('AND TH002>:s3');
+          ADOQuery14.sql.add('AND TH002<:s4');
+          ADOQuery14.sql.add('AND TG001=TH001');
+          ADOQuery14.sql.add('AND TG002=TH002');
+          ADOQuery14.sql.add('ORDER BY TH004,TH002');
+          ADOQuery14.Parameters.parambyname('s1').VALUE:=s1[j,1];
+          ADOQuery14.Parameters.parambyname('s3').VALUE:=Edit1.text+inttostr(l)+'0000';
+          ADOQuery14.Parameters.parambyname('s4').VALUE:=Edit1.text+inttostr(l)+'9999';
+          ADOQuery14.open;
+          IF ADOQuery14.RECORDCOUNT>0 THEN
+            begin
+              for n:= 1 to ADOQuery14.RECORDCOUNT do
+                begin
+                  StringGrid4.Cells[l,j]:=ADOQuery14.Fields[2].asstring;
+                  StringGrid4.Cells[13,j]:=ADOQuery14.Fields[4].asstring;
+                end;
+            end;
+        end;
+      ProgressBar1.position:=j;
+    end;
+  ProgressBar1.position:=0;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  ADOQuery12.close;
+  ADOQuery12.SQL.Clear;
+  ADOQuery12.SQL.add('select TD002,TD003,TD005,TD008 ');                                // 查非合約採購
+  ADOQuery12.sql.add('from PURTD,PURTC');
+  ADOQuery12.sql.add('WHERE TC024>:s1');
+  ADOQuery12.sql.add('AND TC024<:s2');
+  ADOQuery12.sql.add('AND TD018=:s3');
+  ADOQuery12.sql.add('AND TD001=:s4');
+  ADOQuery12.sql.add('AND TD034<>:s5');
+  ADOQuery12.sql.add('AND TD004>:s6');
+  ADOQuery12.sql.add('AND TD004<:s7');
+  ADOQuery12.sql.add('AND TD008>:s8');
+  ADOQuery12.sql.add('AND TD002=TC002');
+  ADOQuery12.sql.add('AND TD001=TC001');
+  ADOQuery12.sql.add('order by TD002');
+  ADOQuery12.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery12.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery12.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery12.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery12.Parameters.parambyname('s5').VALUE:='5';
+  ADOQuery12.Parameters.parambyname('s6').VALUE:='4SC';
+  ADOQuery12.Parameters.parambyname('s7').VALUE:='4SG';
+  ADOQuery12.Parameters.parambyname('s8').VALUE:=0;
+  ADOQuery12.open;
+
+  Label72.CAPTION:=INTTOSTR(ADOQuery12.RECORDCOUNT);
+
+  IF ADOQuery12.RECORDCOUNT>0 THEN Label39.CAPTION:='非合約採購';
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+var
+  l:real;
+  i,j:integer;
+begin
+  Button7.click;
+  ProgressBar1.Max:=100;
+  if Edit4.text='' then exit;
+  if Edit5.text='' then exit;
+
+  for i:=1 to 60 do
+    begin
+      for j:=1 to 20 do
+        begin
+          t[i,j]:=0;
+        end;
+    end;
+
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select TD005,TD008 ');                                     // 查未結案採購單項數
+  ADOQuery1.sql.add('from PURTD');
+  ADOQuery1.sql.add('WHERE TD016=:s1');
+  ADOQuery1.sql.add('and TD018=:s3');
+  ADOQuery1.sql.add('AND TD001=:s4');
+  ADOQuery1.sql.add('order by TD012');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:='N';
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery1.open;
+  Label28.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+  Label47.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+  ProgressBar1.position:=5;
+
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select TD005,TD008,TD015');                                // 查預計進貨
+  ADOQuery1.sql.add('from PURTD');
+  ADOQuery1.sql.add('WHERE TD012>:s1');
+  ADOQuery1.sql.add('AND TD012<:s2');
+  ADOQuery1.sql.add('AND TD018=:s3');
+  ADOQuery1.sql.add('AND TD001=:s4');
+  ADOQuery1.sql.add('order by TD012');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery1.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery1.open;
+  Label30.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+  Label116.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+
+
+  l:=0;
+  for i:=1 to ADOQuery1.RECORDCOUNT do
+    begin
+      l:=l+ADOQuery1.Fields[1].Value;
+    end;
+  Label71.CAPTION:=floatTOSTR(l);
+  
+  ProgressBar1.position:=10;
+
+  Button11.click;
+  Button13.click;
+  Button14.click;
+  Button15.click;
+  Button16.click;
+  Button17.click;
+  Button2.click;
+  Button3.click;
+  Button1.click;
+  Button19.click;
+  ProgressBar1.position:=15;
+
+  ADOQuery10.close;
+  ADOQuery10.SQL.Clear;
+  ADOQuery10.SQL.add('select TG005,TG026');                                      // TG026 進貨數量查進貨單頭
+  ADOQuery10.sql.add('from PURTG');
+  ADOQuery10.sql.add('WHERE TG003>=:s1');
+  ADOQuery10.sql.add('and TG003<=:s2');
+  ADOQuery10.sql.add('and TG013=:s3');
+  ADOQuery10.sql.add('and TG001=:s4');
+  ADOQuery10.sql.add('order by TG005');
+  ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+  ADOQuery10.open;
+//  Label53.CAPTION:=INTTOSTR(ADOQuery10.RECORDCOUNT);
+  ADOQuery10.first;
+  ProgressBar1.position:=20;
+
+  k:=1;
+  s[k]:=ADOQuery10.Fields[0].Value;
+  t[k,1]:=ADOQuery10.Fields[1].Value;
+  ADOQuery10.next;
+
+  for i:=2 to ADOQuery10.RecordCount do
+    begin
+      if s[k]=ADOQuery10.Fields[0].Value then
+         t[k,1]:=t[k,1]+ADOQuery10.Fields[1].Value;                              //同廠商數量加總
+
+      if s[k]<>ADOQuery10.Fields[0].Value then                                   //找出不同廠商代號
+        begin
+          k:=k+1;
+          s[k]:=ADOQuery10.Fields[0].Value;
+          t[k,1]:=ADOQuery10.Fields[1].Value;
+        end;
+      ADOQuery10.next;
+    end;
+
+  StringGrid1.rowcount:=k+2;
+  ProgressBar1.position:=50;
+
+  for i:=1 to k do
+    begin
+
+      ADOQuery10.close;
+      ADOQuery10.SQL.Clear;
+      ADOQuery10.SQL.add('select TH007');                                        // TH007 進貨數量查進貨單身
+      ADOQuery10.sql.add('from PURTG,PURTH');
+      ADOQuery10.sql.add('WHERE TG003>=:s1');
+      ADOQuery10.sql.add('and TG003<=:s2');
+      ADOQuery10.sql.add('and TG013=:s3');
+      ADOQuery10.sql.add('and TG001=:s4');
+      ADOQuery10.sql.add('and TG005=:s5');
+      ADOQuery10.sql.add('and TH009=:s6');
+      ADOQuery10.sql.add('and TG001=TH001');
+      ADOQuery10.sql.add('and TG002=TH002');
+      ADOQuery10.sql.add('order by TG005');
+      ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+      ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+      ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+      ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+      ADOQuery10.Parameters.parambyname('s5').VALUE:=s[i];
+      ADOQuery10.Parameters.parambyname('s6').VALUE:='150';                      // TH005 150 不良倉
+      ADOQuery10.open;
+      ADOQuery10.first;
+
+      if ADOQuery10.recordcount>0 then
+        begin
+        for j:=1 to ADOQuery10.recordcount do
+          begin
+            t[i,2]:=t[i,2]+ADOQuery10.Fields[0].Value;
+            ADOQuery10.next;
+          end;
+        end;
+
+      ADOQuery10.close;
+      ADOQuery10.SQL.Clear;
+      ADOQuery10.SQL.add('select TH017');                                         // TH0017 驗退數量查進貨單身
+      ADOQuery10.sql.add('from PURTG,PURTH');
+      ADOQuery10.sql.add('WHERE TG003>=:s1');
+      ADOQuery10.sql.add('and TG003<=:s2');
+      ADOQuery10.sql.add('and TG013=:s3');
+      ADOQuery10.sql.add('and TG001=:s4');
+      ADOQuery10.sql.add('and TG005=:s5');
+      ADOQuery10.sql.add('and TG001=TH001');
+      ADOQuery10.sql.add('and TG002=TH002');
+      ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+      ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+      ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+      ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+      ADOQuery10.Parameters.parambyname('s5').VALUE:=s[i];
+      ADOQuery10.open;
+      ADOQuery10.first;
+
+      t[i,8]:=ADOQuery10.recordcount;                                            //廠商進貨總項數
+
+      if ADOQuery10.recordcount>0 then
+        begin
+        for j:=1 to ADOQuery10.recordcount do
+          begin
+            t[i,4]:=t[i,4]+ADOQuery10.Fields[0].Value;
+            ADOQuery10.next;
+          end;
+        end;
+
+      ADOQuery10.close;
+      ADOQuery10.SQL.Clear;
+      ADOQuery10.SQL.add('select TD012,TG003');                                  // 廠商進貨逾期項數 查進貨單身
+      ADOQuery10.sql.add('from PURTG,PURTH,PURTD');
+      ADOQuery10.sql.add('WHERE TG003>=:s1');
+      ADOQuery10.sql.add('and TG003<=:s2');
+      ADOQuery10.sql.add('and TG013=:s3');
+      ADOQuery10.sql.add('and TG001=:s4');
+      ADOQuery10.sql.add('and TG005=:s5');
+      ADOQuery10.sql.add('and TG001=TH001');
+      ADOQuery10.sql.add('and TG002=TH002');
+      ADOQuery10.sql.add('AND TD001=TH011');
+      ADOQuery10.sql.add('AND TD002=TH012');
+      ADOQuery10.sql.add('AND TD003=TH013');
+      ADOQuery10.sql.add('AND TG003>TD012');
+      ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+      ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+      ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+      ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+      ADOQuery10.Parameters.parambyname('s5').VALUE:=s[i];
+      ADOQuery10.open;
+      ADOQuery10.first;
+
+      t[i,9]:=ADOQuery10.recordcount;                                            //廠商進貨逾期項數
+
+      ADOQuery10.close;
+      ADOQuery10.SQL.Clear;
+      ADOQuery10.SQL.add('select TI022');                                        // TH0017 退貨數量查退貨單頭
+      ADOQuery10.sql.add('from PURTG,PURTI,PURTJ,PURTH');
+      ADOQuery10.sql.add('WHERE TG003>=:s1');
+      ADOQuery10.sql.add('and TG003<=:s2');
+      ADOQuery10.sql.add('and TG013=:s3');
+      ADOQuery10.sql.add('and TG001=:s4');
+      ADOQuery10.sql.add('and TG005=:s5');
+      ADOQuery10.sql.add('and TG001=TH001');
+      ADOQuery10.sql.add('and TG002=TH002');
+      ADOQuery10.sql.add('AND TH001=TJ013');
+      ADOQuery10.sql.add('AND TH002=TJ014');
+      ADOQuery10.sql.add('AND TH003=TJ015');
+      ADOQuery10.sql.add('AND TI001=TJ001');
+      ADOQuery10.sql.add('AND TI002=TJ002');
+      ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+      ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+      ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+      ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+      ADOQuery10.Parameters.parambyname('s5').VALUE:=s[i];
+      ADOQuery10.open;
+      ADOQuery10.first;
+
+      if ADOQuery10.Fields[0].Value>0 then t[i,6]:=ADOQuery10.Fields[0].Value;                                           //廠商進貨逾期項數
+ 
+      if t[i,1]>0 then t[i,3]:=t[i,2]/t[i,1]*1000;
+      if t[i,1]>0 then t[i,5]:=t[i,4]/t[i,1]*100;
+      if t[i,1]>0 then t[i,7]:=t[i,6]/t[i,1]*100;
+      if t[i,8]>0 then t[i,10]:=t[i,9]/t[i,8]*100;
+
+      ProgressBar1.position:=50+i;
+    end;
+
+  ADOQuery10.close;
+  ADOQuery10.SQL.Clear;
+  ADOQuery10.SQL.add('select TH017');                                            // 進貨總項數
+  ADOQuery10.sql.add('from PURTG,PURTH');
+  ADOQuery10.sql.add('WHERE TG003>=:s1');
+  ADOQuery10.sql.add('and TG003<=:s2');
+  ADOQuery10.sql.add('and TG013=:s3');
+  ADOQuery10.sql.add('and TG001=:s4');
+  ADOQuery10.sql.add('and TG001=TH001');
+  ADOQuery10.sql.add('and TG002=TH002');
+  ADOQuery10.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery10.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery10.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery10.Parameters.parambyname('s4').VALUE:='340';
+  ADOQuery10.open;
+
+  Label57.caption:=inttostr(ADOQuery10.recordcount);
+  ProgressBar1.position:=100;
+  Button10.click;
+  ProgressBar1.position:=0;
+
+  ADOQuery1.close;
+  ADOQuery10.close;
+  Button9.Click;
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);
+var
+  i,j:integer;
+begin
+  Label8.caption:='';
+  Label9.caption:='';
+  Label10.caption:='';
+  Label12.caption:='';
+//  Label13.caption:='';
+  Label15.caption:='';
+  Label31.caption:='';
+  Label32.caption:='';
+  Label33.caption:='';
+  Label34.caption:='';
+  Label35.caption:='';
+  Label39.caption:='';
+  Label40.caption:='';
+  Label41.caption:='';
+
+  for i:= 1 to 200 do
+    begin
+      for j:=0 to 25 do
+        begin
+          StringGrid2.Cells[j,i]:='';
+        end;
+    end;
+
+  for i:= 1 to 200 do
+    begin
+      for j:=0 to 37 do
+        begin
+          StringGrid3.Cells[j,i]:='';
+        end;
+    end;
+
+  for i:= 1 to 60 do
+    begin
+      for j:=1 to 20 do
+        begin
+          t[i,j]:=0;
+        end;
+    end;
+
+  for i:= 1 to 200 do
+    begin
+      for j:=1 to 40 do
+        begin
+          t1[i,j]:='';
+        end;
+    end;
+
+  for i:= 1 to 60 do
+    begin
+      s[i]:='';
+    end;
+end;
+
+procedure TForm1.Timer1Timer(Sender: TObject);
+begin
+  if Label31.visible=true then
+    begin
+      Label31.visible:=false;
+      Label32.visible:=false;
+      Label33.visible:=false;
+      Label34.visible:=false;
+      Label35.visible:=false;
+      Label39.visible:=false;
+      Label40.visible:=false;
+      Label41.visible:=false;
+    end
+  else
+    begin
+      Label31.visible:=true;
+      Label32.visible:=true;
+      Label33.visible:=true;
+      Label34.visible:=true;
+      Label35.visible:=true;
+      Label39.visible:=true;
+      Label40.visible:=true;
+      Label41.visible:=true;
+    end;
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  Button7.click;
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+var
+  i,j,k:integer;
+  s,s1:string;
+  ss:array[1..100]of string;
+begin
+
+  s:=datetostr(now);
+  i:=strtoint(copy(s,1,4)+copy(s,6,2)+copy(s,9,2));
+
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select TD012 ');                                           // 查預計進貨日期
+  ADOQuery1.sql.add('from PURTD');
+  ADOQuery1.sql.add('WHERE TD012>=:s1');
+  ADOQuery1.sql.add('AND TD018=:s3');
+  ADOQuery1.sql.add('AND TD001=:s4');
+  ADOQuery1.sql.add('order by TD012');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:=inttostr(i);
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery1.open;
+  ADOQuery1.first;
+
+  k:=1;
+  ss[k]:=copy(ADOQuery1.Fields[0].value,1,8);
+  For j := 1 to 50 do
+    begin
+      ADOQuery1.next;
+      s1:=copy(ADOQuery1.Fields[0].value,1,8);
+      if s1<>ss[k] then
+        begin
+          k:=k+1;
+          ss[k]:=s1;
+        end;
+    end;
+
+  Label1.caption:=ss[1];
+  Label2.caption:=ss[2];
+  Label3.caption:=ss[3];
+
+
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select MA002,TD002,TD003,TD004,TD005,TD008,TD015 ');                                     // 查預計進貨 1
+  ADOQuery1.sql.add('from PURTD,PURTC,PURMA');
+  ADOQuery1.sql.add('WHERE TD012=:s1');
+  ADOQuery1.sql.add('AND TD018=:s3');
+  ADOQuery1.sql.add('AND TD001=:s4');
+  ADOQuery1.sql.add('and MA001=TC004');
+  ADOQuery1.sql.add('and TC001=TD001');
+  ADOQuery1.sql.add('and TC002=TD002');
+  ADOQuery1.sql.add('order by TD012');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:=Label1.CAPTION;
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery1.open;
+  ADOQuery1.first;
+  Label5.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+
+  ADOQuery2.close;
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('select MA002,TD002,TD003,TD004,TD005,TD008,TD015 ');                                     // 查預計進貨 2
+  ADOQuery2.sql.add('from PURTD,PURTC,PURMA');
+  ADOQuery2.sql.add('WHERE TD012=:s1');
+  ADOQuery2.sql.add('AND TD018=:s3');
+  ADOQuery2.sql.add('AND TD001=:s4');
+  ADOQuery2.sql.add('and MA001=TC004');
+  ADOQuery2.sql.add('and TC001=TD001');
+  ADOQuery2.sql.add('and TC002=TD002');
+  ADOQuery2.sql.add('order by TD012');
+  ADOQuery2.Parameters.parambyname('s1').VALUE:=Label2.CAPTION;
+  ADOQuery2.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery2.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery2.open;
+  Label6.CAPTION:=INTTOSTR(ADOQuery2.RECORDCOUNT);
+
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('select MA002,TD002,TD003,TD004,TD005,TD008,TD015 ');                                     // 查預計進貨 3
+  ADOQuery3.sql.add('from PURTD,PURTC,PURMA');
+  ADOQuery3.sql.add('WHERE TD012=:s1');
+  ADOQuery3.sql.add('AND TD018=:s3');
+  ADOQuery3.sql.add('AND TD001=:s4');
+  ADOQuery3.sql.add('and MA001=TC004');
+  ADOQuery3.sql.add('and TC001=TD001');
+  ADOQuery3.sql.add('and TC002=TD002');
+  ADOQuery3.sql.add('order by TD012');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:=Label3.CAPTION;
+  ADOQuery3.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery3.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery3.open;
+  Label7.CAPTION:=INTTOSTR(ADOQuery3.RECORDCOUNT);
+
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);
+var
+  i,j,l,m:integer;
+begin
+  l:=3;
+  m:=50;
+
+  Label151.FONT.COLOR:=clWindowText;
+  Label152.FONT.COLOR:=clWindowText;
+  Label153.FONT.COLOR:=clWindowText;
+  Label154.FONT.COLOR:=clWindowText;
+  Label45.FONT.COLOR:=clWindowText;
+  Label155.FONT.COLOR:=clWindowText;
+  Label62.FONT.COLOR:=clWindowText;
+  Label93.FONT.COLOR:=clWindowText;
+  Label118.FONT.COLOR:=clWindowText;
+  Label167.FONT.COLOR:=clWindowText;
+  Label55.FONT.COLOR:=clWindowText;
+  Label140.FONT.COLOR:=clWindowText;
+  Label141.FONT.COLOR:=clWindowText;
+  Label142.FONT.COLOR:=clWindowText;
+  Label49.FONT.COLOR:=clWindowText;
+  Label143.FONT.COLOR:=clWindowText;
+  Label69.FONT.COLOR:=clWindowText;
+  Label95.FONT.COLOR:=clWindowText;
+  Label121.FONT.COLOR:=clWindowText;
+  Label169.FONT.COLOR:=clWindowText;
+  Label157.FONT.COLOR:=clWindowText;
+  Label158.FONT.COLOR:=clWindowText;
+  Label159.FONT.COLOR:=clWindowText;
+  Label160.FONT.COLOR:=clWindowText;
+  Label51.FONT.COLOR:=clWindowText;
+  Label161.FONT.COLOR:=clWindowText;
+  Label74.FONT.COLOR:=clWindowText;
+  Label97.FONT.COLOR:=clWindowText;
+  Label123.FONT.COLOR:=clWindowText;
+  Label171.FONT.COLOR:=clWindowText;
+  Label145.FONT.COLOR:=clWindowText;
+  Label146.FONT.COLOR:=clWindowText;
+  Label147.FONT.COLOR:=clWindowText;
+  Label148.FONT.COLOR:=clWindowText;
+  Label58.FONT.COLOR:=clWindowText;
+  Label149.FONT.COLOR:=clWindowText;
+  Label77.FONT.COLOR:=clWindowText;
+  Label113.FONT.COLOR:=clWindowText;
+  Label164.FONT.COLOR:=clWindowText;
+  Label174.FONT.COLOR:=clWindowText;
+
+  Label151.Caption:='0';
+  Label152.Caption:='0';
+  Label153.Caption:='0';
+  Label154.Caption:='0';
+  Label45.Caption:='0';
+  Label155.Caption:='0';
+  Label62.Caption:='0';
+  Label93.Caption:='0';
+  Label118.Caption:='0';
+  Label167.Caption:='0';
+  Label55.Caption:='0';
+  Label140.Caption:='0';
+  Label141.Caption:='0';
+  Label142.Caption:='0';
+  Label49.Caption:='0';
+  Label143.Caption:='0';
+  Label69.Caption:='0';
+  Label95.Caption:='0';
+  Label121.Caption:='0';
+  Label169.Caption:='0';
+  Label157.Caption:='0';
+  Label158.Caption:='0';
+  Label159.Caption:='0';
+  Label160.Caption:='0';
+  Label51.Caption:='0';
+  Label161.Caption:='0';
+  Label74.Caption:='0';
+  Label97.Caption:='0';
+  Label123.Caption:='0';
+  Label171.Caption:='0';
+  Label145.Caption:='0';
+  Label146.Caption:='0';
+  Label147.Caption:='0';
+  Label148.Caption:='0';
+  Label58.Caption:='0';
+  Label149.Caption:='0';
+  Label77.Caption:='0';
+  Label113.Caption:='0';
+  Label164.Caption:='0';
+  Label174.Caption:='0';
+
+  Label84.Caption:='0';
+  Label85.Caption:='0';
+  Label86.Caption:='0';
+  Label87.Caption:='0';
+  Label20.Caption:='0';
+  Label65.Caption:='0';
+  Label60.Caption:='0';
+  Label78.Caption:='0';
+  Label115.Caption:='0';
+  Label165.Caption:='0';
+  Label128.Caption:='0';
+  Label129.Caption:='0';
+  Label130.Caption:='0';
+  Label131.Caption:='0';
+  Label44.Caption:='0';
+  Label132.Caption:='0';
+  Label61.Caption:='0';
+  Label92.Caption:='0';
+  Label117.Caption:='0';
+  Label166.Caption:='0';
+  Label103.Caption:='0';
+  Label104.Caption:='0';
+  Label105.Caption:='0';
+  Label106.Caption:='0';
+  Label48.Caption:='0';
+  Label107.Caption:='0';
+  Label68.Caption:='0';
+  Label94.Caption:='0';
+  Label119.Caption:='0';
+  Label168.Caption:='0';
+  Label88.Caption:='0';
+  Label89.Caption:='0';
+  Label90.Caption:='0';
+  Label91.Caption:='0';
+  Label50.Caption:='0';
+  Label66.Caption:='0';
+  Label73.Caption:='0';
+  Label96.Caption:='0';
+  Label122.Caption:='0';
+  Label170.Caption:='0';
+
+  Label98.Caption:='0';
+  Label99.Caption:='0';
+  Label100.Caption:='0';
+  Label101.Caption:='0';
+  Label53.Caption:='0';
+  Label102.Caption:='0';
+  Label75.Caption:='0';
+  Label109.Caption:='0';
+  Label162.Caption:='0';
+  Label172.Caption:='0';
+  Label133.Caption:='0';
+  Label134.Caption:='0';
+  Label135.Caption:='0';
+  Label136.Caption:='0';
+  Label56.Caption:='0';
+  Label137.Caption:='0';
+  Label76.Caption:='0';
+  Label111.Caption:='0';
+  Label163.Caption:='0';
+  Label173.Caption:='0';
+  Label145.Caption:='0';
+  Label146.Caption:='0';
+  Label147.Caption:='0';
+  Label148.Caption:='0';
+  Label58.Caption:='0';
+  Label149.Caption:='0';
+  Label77.Caption:='0';
+  Label113.Caption:='0';
+  Label164.Caption:='0';
+  Label174.Caption:='0';
+
+  for i:= 1 to StringGrid1.colcount do
+    begin
+      for j:=1 to StringGrid1.rowcount do
+        begin
+          StringGrid1.Cells[j,i]:='';
+        end;
+    end;
+
+  for i:=1 to k do
+    begin
+      ADOQuery10.close;
+      ADOQuery10.SQL.Clear;
+      ADOQuery10.SQL.add('select MA002');                                        // MA002 供應商簡稱  查廠商
+      ADOQuery10.sql.add('from PURMA');
+      ADOQuery10.sql.add('WHERE MA001=:s1');
+      ADOQuery10.Parameters.parambyname('s1').VALUE:=s[i];
+      ADOQuery10.open;
+      StringGrid1.Cells[0,i]:=ADOQuery10.Fields[0].value;
+      for j:= 1 to 10 do
+        begin
+          if t[i,j]>0 then
+            begin
+              StringGrid1.Cells[j,i]:=floattostr(t[i,j]);
+              if (j=3) or (j=5) or (j=7) or (j=10) then StringGrid1.Cells[j,i]:=floattostrf(t[i,j],ffNumber,7,2);
+            end;
+        end;
+      IF COPY(s[i],1,6)='CM0033' then
+        begin
+          Label80.Caption:=' 1.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label84.Caption:=floattostr(t[i,1]);
+          Label128.Caption:=floattostr(t[i,2]);
+          Label151.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label151.FONT.COLOR:=CLRed;
+          Label103.Caption:=floattostr(t[i,4]);
+          Label55.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label88.Caption:=floattostr(t[i,6]);
+          Label157.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label98.Caption:=floattostr(t[i,8]);
+          Label133.Caption:=floattostr(t[i,9]);
+          Label145.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label145.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0026' then
+        begin
+          Label81.Caption:=' 2.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label85.Caption:=floattostr(t[i,1]);
+          Label129.Caption:=floattostr(t[i,2]);
+          Label152.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label152.FONT.COLOR:=CLRed;
+          Label104.Caption:=floattostr(t[i,4]);
+          Label140.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label89.Caption:=floattostr(t[i,6]);
+          Label158.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label99.Caption:=floattostr(t[i,8]);
+          Label134.Caption:=floattostr(t[i,9]);
+          Label146.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label146.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0067' then
+        begin
+          Label82.Caption:=' 3.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label86.Caption:=floattostr(t[i,1]);
+          Label130.Caption:=floattostr(t[i,2]);
+          Label153.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label153.FONT.COLOR:=CLRed;
+          Label105.Caption:=floattostr(t[i,4]);
+          Label141.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label90.Caption:=floattostr(t[i,6]);
+          Label159.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label100.Caption:=floattostr(t[i,8]);
+          Label135.Caption:=floattostr(t[i,9]);
+          Label147.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label147.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0007' then
+        begin
+          Label83.Caption:=' 4.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label87.Caption:=floattostr(t[i,1]);
+          Label131.Caption:=floattostr(t[i,2]);
+          Label154.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label154.FONT.COLOR:=CLRed;
+          Label106.Caption:=floattostr(t[i,4]);
+          Label142.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label91.Caption:=floattostr(t[i,6]);
+          Label160.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label101.Caption:=floattostr(t[i,8]);
+          Label136.Caption:=floattostr(t[i,9]);
+          Label148.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label148.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0046' then
+        begin
+          Label64.Caption:=' 5.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label20.Caption:=floattostr(t[i,1]);
+          Label44.Caption:=floattostr(t[i,2]);
+          Label45.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label45.FONT.COLOR:=CLRed;
+          Label48.Caption:=floattostr(t[i,4]);
+          Label49.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label50.Caption:=floattostr(t[i,6]);
+          Label51.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label53.Caption:=floattostr(t[i,8]);
+          Label56.Caption:=floattostr(t[i,9]);
+          Label58.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label58.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0074' then
+        begin
+          Label16.Caption:=' 6.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label65.Caption:=floattostr(t[i,1]);
+          Label132.Caption:=floattostr(t[i,2]);
+          Label155.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label155.FONT.COLOR:=CLRed;
+          Label107.Caption:=floattostr(t[i,4]);
+          Label143.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label66.Caption:=floattostr(t[i,6]);
+          Label161.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label102.Caption:=floattostr(t[i,8]);
+          Label137.Caption:=floattostr(t[i,9]);
+          Label149.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label149.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0055' then
+        begin
+          Label17.Caption:=' 7.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label60.Caption:=floattostr(t[i,1]);
+          Label61.Caption:=floattostr(t[i,2]);
+          Label62.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label62.FONT.COLOR:=CLRed;
+          Label68.Caption:=floattostr(t[i,4]);
+          Label69.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label73.Caption:=floattostr(t[i,6]);
+          Label74.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label75.Caption:=floattostr(t[i,8]);
+          Label76.Caption:=floattostr(t[i,9]);
+          Label77.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label77.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0001' then
+        begin
+          Label18.Caption:=' 8.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label78.Caption:=floattostr(t[i,1]);
+          Label92.Caption:=floattostr(t[i,2]);
+          Label93.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          IF t[i,3]>l THEN Label93.FONT.COLOR:=CLRed;
+          Label94.Caption:=floattostr(t[i,4]);
+          Label95.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label96.Caption:=floattostr(t[i,6]);
+          Label97.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label109.Caption:=floattostr(t[i,8]);
+          Label111.Caption:=floattostr(t[i,9]);
+          Label113.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label113.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0070' then
+        begin
+          Label25.Caption:=' 9.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label115.Caption:=floattostr(t[i,1]);
+          Label117.Caption:=floattostr(t[i,2]);
+          Label118.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          Label119.Caption:=floattostr(t[i,4]);
+          Label121.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label122.Caption:=floattostr(t[i,6]);
+          Label123.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label162.Caption:=floattostr(t[i,8]);
+          Label163.Caption:=floattostr(t[i,9]);
+          Label164.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label164.FONT.COLOR:=CLRed;
+        end;
+      IF COPY(s[i],1,6)='CM0027' then
+        begin
+          Label26.Caption:='10.'+copy(ADOQuery10.Fields[0].value,1,10)+':';
+          Label165.Caption:=floattostr(t[i,1]);
+          Label166.Caption:=floattostr(t[i,2]);
+          Label167.Caption:=floattostrf(t[i,3],ffNumber,7,2);
+          Label168.Caption:=floattostr(t[i,4]);
+          Label169.Caption:=floattostrf(t[i,5],ffNumber,7,2);
+          Label170.Caption:=floattostr(t[i,6]);
+          Label171.Caption:=floattostrf(t[i,7],ffNumber,7,2);
+          Label172.Caption:=floattostr(t[i,8]);
+          Label173.Caption:=floattostr(t[i,9]);
+          Label174.Caption:=floattostrf(t[i,10],ffNumber,7,2);
+          IF t[i,10]>m THEN Label174.FONT.COLOR:=CLRed;
+        end;
+    end;
+
+  StringGrid1.Cells[0,0]:='供應商';
+  StringGrid1.Cells[1,0]:='進貨總數量';
+  StringGrid1.Cells[2,0]:='不良數量';
+  StringGrid1.Cells[3,0]:='不良率 1/1000';
+  StringGrid1.Cells[4,0]:='驗退數量';
+  StringGrid1.Cells[5,0]:='驗退率%';
+  StringGrid1.Cells[6,0]:='退貨數量';
+  StringGrid1.Cells[7,0]:='退貨率%';
+  StringGrid1.Cells[8,0]:='進貨筆數';
+  StringGrid1.Cells[9,0]:='逾期筆數';
+  StringGrid1.Cells[10,0]:='逾期率%';
+
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);
+begin
+  ADOQuery4.close;
+  ADOQuery4.SQL.Clear;
+  ADOQuery4.SQL.add('select TA003,TB011,TB005,TB006,TB009');                    // 查請購單身   TB011 需求日期
+  ADOQuery4.sql.add('from PURTA,PURTB');
+  ADOQuery4.sql.add('WHERE TB021=:s1');
+  ADOQuery4.sql.add('AND TB025=:s2');
+  ADOQuery4.sql.add('AND TB001=:s3');
+  ADOQuery4.sql.add('AND TB001=TA001');
+  ADOQuery4.sql.add('AND TB002=TA002');
+  ADOQuery4.sql.add('order by TB011');
+  ADOQuery4.Parameters.parambyname('s1').VALUE:='N';
+  ADOQuery4.Parameters.parambyname('s2').VALUE:='Y';
+  ADOQuery4.Parameters.parambyname('s3').VALUE:='310';                          // 原物料請購
+  ADOQuery4.open;
+  k:=7;
+  Label8.CAPTION:=INTTOSTR(ADOQuery4.RECORDCOUNT);
+  Label46.CAPTION:=INTTOSTR(ADOQuery4.RECORDCOUNT);
+  Label24.CAPTION:=INTTOSTR(ADOQuery4.RECORDCOUNT);  
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+begin
+  ADOQuery1.close;
+  ADOQuery1.SQL.Clear;
+  ADOQuery1.SQL.add('select TD012,TD002,TD003,TD004,TD005,TD008,TD015 ');       // 查請購單身
+  ADOQuery1.sql.add('from PURTD');
+  ADOQuery1.sql.add('WHERE TD012>:s1');
+  ADOQuery1.sql.add('AND TD012<:s2');
+  ADOQuery1.sql.add('AND TD018=:s3');
+  ADOQuery1.sql.add('AND TD001=:s4');
+  ADOQuery1.sql.add('order by TD012');
+  ADOQuery1.Parameters.parambyname('s1').VALUE:=Edit4.text;
+  ADOQuery1.Parameters.parambyname('s2').VALUE:=Edit5.text;
+  ADOQuery1.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery1.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery1.open;
+  k:=7;
+  Label30.CAPTION:=INTTOSTR(ADOQuery1.RECORDCOUNT);
+end;
+
+procedure TForm1.Button13Click(Sender: TObject);
+begin
+  ADOQuery6.close;
+  ADOQuery6.SQL.Clear;
+  ADOQuery6.SQL.add('select MA001,MA002,TH011,TH012,TH013,TH005,TH006,TH007,TD008,TD015');  // 查進貨單身
+  ADOQuery6.sql.add('from PURTH,PURTD,PURTG,PURMA');
+  ADOQuery6.sql.add('WHERE TH009=:s1');
+  ADOQuery6.sql.add('and TG003>=:s2');
+  ADOQuery6.sql.add('and TG003<=:s3');
+  ADOQuery6.sql.add('AND TD001=TH011');
+  ADOQuery6.sql.add('AND TD002=TH012');
+  ADOQuery6.sql.add('AND TD003=TH013');
+  ADOQuery6.sql.add('AND TG001=TH001');
+  ADOQuery6.sql.add('AND TG002=TH002');
+  ADOQuery6.sql.add('AND TG005=MA001');
+  ADOQuery6.sql.add('AND TH004>=:s4');
+  ADOQuery6.sql.add('AND TH004<:s5');
+  ADOQuery6.sql.add('order by MA001');
+  ADOQuery6.Parameters.parambyname('s1').VALUE:='150';                            //150 不良倉
+  ADOQuery6.Parameters.parambyname('s2').VALUE:=Edit4.text;
+  ADOQuery6.Parameters.parambyname('s3').VALUE:=Edit5.text;
+  ADOQuery6.Parameters.parambyname('s4').VALUE:='4SC';                            // 排除非cell  2010.12.17
+  ADOQuery6.Parameters.parambyname('s5').VALUE:='4SD';
+  ADOQuery6.open;
+  k:=4;
+  Label10.CAPTION:=INTTOSTR(ADOQuery6.RECORDCOUNT);
+end;
+
+procedure TForm1.Button14Click(Sender: TObject);
+var
+  i,j:integer;
+begin
+  ADOQuery5.close;
+  ADOQuery5.SQL.Clear;
+//  ADOQuery5.SQL.add('select MA001,MA002,TH005,TA003,TB011,TC003,TD012,TG003,TH014,TA013,TC024,TG014');   // 查請購單頭、 單身、採購、進貨單身、進貨單頭
+//  ADOQuery5.sql.add('FROM PURTH,PURTG,PURTD,PURTC,PURTB,PURTA,PURMA');
+  ADOQuery5.SQL.add('select MA002,TH005,PURTC.CREATE_DATE,TC024,TC003,TD012,PURTG.CREATE_DATE,TG014,TG003,TH014,TD026,TD027,TD028,TH011,TH012,TH013,TH001,TH002,TH003,TD003');   // 查採購、進貨單身、進貨單頭
+  ADOQuery5.sql.add('FROM PURTH,PURTG,PURTD,PURTC,PURMA');
+  ADOQuery5.sql.add('WHERE TG003>TD012');                                        // TD012 預交日 TG003 進貨日期 TH014 驗收日期
+  ADOQuery5.sql.add('and TG003>=:s2');
+  ADOQuery5.sql.add('and TG003<=:s3');
+  ADOQuery5.sql.add('AND TH001=:s1');
+  ADOQuery5.sql.add('and TG013=:s4');
+  ADOQuery5.sql.add('AND TC001=TD001');
+  ADOQuery5.sql.add('AND TC002=TD002');
+  ADOQuery5.sql.add('AND TD001=TH011');
+  ADOQuery5.sql.add('AND TD002=TH012');
+  ADOQuery5.sql.add('AND TD003=TH013');
+//  ADOQuery5.sql.add('AND TD026=TB001');
+//  ADOQuery5.sql.add('AND TD027=TB002');
+//  ADOQuery5.sql.add('AND TD028=TB003');
+//  ADOQuery5.sql.add('AND TB001=TA001');
+//  ADOQuery5.sql.add('AND TB002=TA002');
+  ADOQuery5.sql.add('AND TG001=TH001');
+  ADOQuery5.sql.add('AND TG002=TH002');
+  ADOQuery5.sql.add('AND TG005=MA001');
+  ADOQuery5.sql.add('order by MA001');
+  ADOQuery5.Parameters.parambyname('s1').VALUE:='340';
+  ADOQuery5.Parameters.parambyname('s2').VALUE:=Edit4.text;
+  ADOQuery5.Parameters.parambyname('s3').VALUE:=Edit5.text;
+  ADOQuery5.Parameters.parambyname('s4').VALUE:='Y';
+  ADOQuery5.open;
+  k:=8;
+  Label9.CAPTION:=INTTOSTR(ADOQuery5.RECORDCOUNT);
+  Label108.CAPTION:=INTTOSTR(ADOQuery5.RECORDCOUNT);
+  if ADOQuery5.recordcount>0 then Label31.caption:='進貨逾期';
+{
+  StringGrid2.Cells[0,0]:='供應商';
+  StringGrid2.Cells[1,0]:='品名';
+  StringGrid2.Cells[2,0]:='訂單建立';
+  StringGrid2.Cells[3,0]:='單據日期';
+  StringGrid2.Cells[4,0]:='訂單日期';
+  StringGrid2.Cells[5,0]:='預交日';
+  StringGrid2.Cells[6,0]:='工單建立';
+  StringGrid2.Cells[7,0]:='單據日期';
+  StringGrid2.Cells[8,0]:='確認日';
+  StringGrid2.Cells[9,0]:='預計開工';
+  StringGrid2.Cells[10,0]:='請購建立';
+  StringGrid2.Cells[11,0]:='單據日期';
+  StringGrid2.Cells[12,0]:='請購日';
+  StringGrid2.Cells[13,0]:='需求日';
+  StringGrid2.Cells[14,0]:='採購建立';
+  StringGrid2.Cells[15,0]:='單據日期';
+  StringGrid2.Cells[16,0]:='採購日';
+  StringGrid2.Cells[17,0]:='預交日';
+  StringGrid2.Cells[18,0]:='進貨建立';
+  StringGrid2.Cells[19,0]:='單據日期';
+  StringGrid2.Cells[20,0]:='進貨日';
+  StringGrid2.Cells[21,0]:='驗收日';
+}
+  StringGrid2.Cells[0,0]:='供應商';
+  StringGrid2.Cells[1,0]:='品名';
+  StringGrid2.Cells[2,0]:='請購建立';
+  StringGrid2.Cells[3,0]:='單據日期';
+  StringGrid2.Cells[4,0]:='請購日';
+  StringGrid2.Cells[5,0]:='需求日';
+  StringGrid2.Cells[6,0]:='採購建立';
+  StringGrid2.Cells[7,0]:='單據日期';
+  StringGrid2.Cells[8,0]:='採購日';
+  StringGrid2.Cells[9,0]:='預交日';
+  StringGrid2.Cells[10,0]:='進貨建立';
+  StringGrid2.Cells[11,0]:='單據日期';
+  StringGrid2.Cells[12,0]:='進貨日';
+  StringGrid2.Cells[13,0]:='驗收日';
+
+  for i:= 1 to 200 do
+    begin
+      for j:=0 to 25 do
+        begin
+          StringGrid2.Cells[j,i]:='';
+        end;
+    end;
+
+  for i:= 1 to 200 do
+    begin
+      for j:=0 to 37 do
+        begin
+          StringGrid3.Cells[j,i]:='';
+        end;
+    end;
+
+  for i:= 1 to 200 do
+    begin
+      for j:=1 to 40 do
+        begin
+          t1[i,j]:='';
+        end;
+    end;
+
+  StringGrid2.rowcount:=ADOQuery5.recordcount+2;
+  StringGrid3.rowcount:=ADOQuery5.recordcount+2;  
+  ADOQuery5.first;
+
+  for i:= 1 to ADOQuery5.recordcount do
+    begin
+      for j:=1 to 2 do
+        begin
+          StringGrid2.Cells[j-1,i]:=ADOQuery5.Fields[j-1].Value;
+          StringGrid3.Cells[j-1,i]:=ADOQuery5.Fields[j-1].Value;
+        end;
+      for j:=3 to 10 do
+        begin
+          StringGrid2.Cells[j+3,i]:=ADOQuery5.Fields[j-1].Value;
+//          t1[i,j+23]:=ADOQuery5.Fields[j-1].Value;
+        end;
+      t1[i,15]:=ADOQuery5.FieldByName('TD026').Value;
+      t1[i,16]:=ADOQuery5.FieldByName('TD027').Value;
+      t1[i,17]:=ADOQuery5.FieldByName('TD028').Value;
+//      t1[i,18]:=ADOQuery5.Fields[2].Value;
+//      t1[i,19]:=ADOQuery5.FieldByName('TA013').Value;
+//      t1[i,20]:=ADOQuery5.FieldByName('TA003').Value;
+//      t1[i,21]:=ADOQuery5.FieldByName('TB011').Value;
+      t1[i,22]:=ADOQuery5.FieldByName('TH011').Value;
+      t1[i,23]:=ADOQuery5.FieldByName('TH012').Value;
+      t1[i,24]:=ADOQuery5.FieldByName('TH013').Value;
+      t1[i,25]:=ADOQuery5.Fields[2].Value;
+      t1[i,26]:=ADOQuery5.FieldByName('TC024').Value;
+      t1[i,27]:=ADOQuery5.FieldByName('TC003').Value;
+      t1[i,28]:=ADOQuery5.FieldByName('TD012').Value;
+      t1[i,29]:=ADOQuery5.FieldByName('TH001').Value;
+      t1[i,30]:=ADOQuery5.FieldByName('TH002').Value;
+      t1[i,31]:=ADOQuery5.FieldByName('TH003').Value;
+      t1[i,32]:=ADOQuery5.Fields[6].Value;
+      t1[i,33]:=ADOQuery5.FieldByName('TG014').Value;
+      t1[i,34]:=ADOQuery5.FieldByName('TG003').Value;
+      t1[i,35]:=ADOQuery5.FieldByName('TH014').Value;
+
+
+      ADOQuery1.close;
+      ADOQuery1.SQL.Clear;
+      ADOQuery1.SQL.add('select TD026,TD027,TD028,PURTA.CREATE_DATE,TA013,TA003,TB011,TB029,TB030,TB031');   // 查請購單頭、單身
+      ADOQuery1.sql.add('FROM PURTD,PURTB,PURTA');
+      ADOQuery1.sql.add('WHERE TD026=:s1');
+      ADOQuery1.sql.add('and TD027=:s2');
+      ADOQuery1.sql.add('AND TD028=:s3');
+      ADOQuery1.sql.add('AND TD003=:s4');
+      ADOQuery1.sql.add('AND TD026=TB001');
+      ADOQuery1.sql.add('AND TD027=TB002');
+      ADOQuery1.sql.add('AND TD028=TB003');
+      ADOQuery1.sql.add('AND TB001=TA001');
+      ADOQuery1.sql.add('AND TB002=TA002');
+//      ADOQuery1.Parameters.parambyname('s1').VALUE:='310';
+      ADOQuery1.Parameters.parambyname('s1').VALUE:=ADOQuery5.FieldByName('TD026').Value;
+      ADOQuery1.Parameters.parambyname('s2').VALUE:=ADOQuery5.FieldByName('TD027').Value;
+      ADOQuery1.Parameters.parambyname('s3').VALUE:=ADOQuery5.FieldByName('TD028').Value;
+      ADOQuery1.Parameters.parambyname('s4').VALUE:=ADOQuery5.FieldByName('TD003').Value;      
+      ADOQuery1.open;
+
+      if ADOQuery1.recordcount>0 then
+        begin
+          for j:=1 to 4 do
+            begin
+              StringGrid2.Cells[j+1,i]:=ADOQuery1.Fields[j+2].Value;
+            end;
+          for j:=1 to 7 do
+            begin
+              t1[i,j+14]:=ADOQuery1.Fields[j-1].Value;
+            end;
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;
+          ADOQuery2.SQL.add('select TB029,TB030,TB031,MOCTA.CREATE_DATE,TA003,TA040,TA009,TA026,TA027,TA028');   // 查工單頭
+          ADOQuery2.sql.add('FROM PURTB,MOCTA');
+          ADOQuery2.sql.add('WHERE TA001=:s1');
+          ADOQuery2.sql.add('and TA002=:s2');
+          ADOQuery2.Parameters.parambyname('s1').VALUE:=ADOQuery1.FieldByName('TB029').Value;
+          ADOQuery2.Parameters.parambyname('s2').VALUE:=ADOQuery1.FieldByName('TB030').Value;
+          ADOQuery2.open;
+
+          if ADOQuery2.recordcount>0 then
+            begin
+//              for j:=1 to 4 do
+//                begin
+//                  StringGrid2.Cells[j+5,i]:=ADOQuery2.Fields[j+2].Value;
+//                end;
+              for j:= 1 to 7 do
+                begin
+                  t1[i,j+7]:=ADOQuery2.Fields[j-1].Value;
+                end;
+              ADOQuery3.close;
+              ADOQuery3.SQL.Clear;
+              ADOQuery3.SQL.add('select TA026,TA027,TA028,COPTC.CREATE_DATE,TC039,TC003,TD013');      // 查訂單頭
+              ADOQuery3.sql.add('FROM MOCTA,COPTC,COPTD');
+              ADOQuery3.sql.add('WHERE TA026=:s1');
+              ADOQuery3.sql.add('and TA027=:s2');
+              ADOQuery3.sql.add('and TA028=:s3');
+              ADOQuery3.sql.add('and TA026=TD001');
+              ADOQuery3.sql.add('and TA027=TD002');
+              ADOQuery3.sql.add('and TA028=TD003');
+              ADOQuery3.sql.add('and TC001=TD001');
+              ADOQuery3.sql.add('and TC002=TD002');
+              ADOQuery3.Parameters.parambyname('s1').VALUE:=ADOQuery2.FieldByName('TA026').Value;
+              ADOQuery3.Parameters.parambyname('s2').VALUE:=ADOQuery2.FieldByName('TA027').Value;
+              ADOQuery3.Parameters.parambyname('s3').VALUE:=ADOQuery2.FieldByName('TA028').Value;
+              ADOQuery3.open;
+
+              if ADOQuery3.recordcount>0 then
+                begin
+//                  for j:=1 to 4 do
+//                    begin
+//                      StringGrid2.Cells[j+1,i]:=ADOQuery3.Fields[j+2].Value;
+//                    end;
+                  for j:=1 to 7 do
+                    begin
+                      t1[i,j]:=ADOQuery3.Fields[j-1].Value;
+                    end;
+                end;
+           end;
+        end;
+      ADOQuery5.Next;
+    end;
+
+  for i:= 1 to ADOQuery5.recordcount+2 do
+    begin
+      for j:=14 to 34 do
+        begin
+          StringGrid3.Cells[j-12,i]:=t1[i,j+1];
+        end;
+    end;
+{
+  StringGrid3.Cells[0,0]:='訂單單別';
+  StringGrid3.Cells[1,0]:='訂單單號';
+  StringGrid3.Cells[2,0]:='訂單序號';
+  StringGrid3.Cells[3,0]:='訂單建立';
+  StringGrid3.Cells[4,0]:='單據日期';
+  StringGrid3.Cells[5,0]:='訂單日期';
+  StringGrid3.Cells[6,0]:='預交日';
+  StringGrid3.Cells[7,0]:='參考單別';
+  StringGrid3.Cells[8,0]:='參考單號';
+  StringGrid3.Cells[9,0]:='參考序號';
+  StringGrid3.Cells[10,0]:='工單建立';
+  StringGrid3.Cells[11,0]:='單據日期';
+  StringGrid3.Cells[12,0]:='確認日';
+  StringGrid3.Cells[13,0]:='預計開工';
+  StringGrid3.Cells[14,0]:='請購單別';
+  StringGrid3.Cells[15,0]:='請購單號';
+  StringGrid3.Cells[16,0]:='請購序號';
+  StringGrid3.Cells[17,0]:='請購建立';
+  StringGrid3.Cells[18,0]:='單據日期';
+  StringGrid3.Cells[19,0]:='請購日';
+  StringGrid3.Cells[20,0]:='需求日';
+  StringGrid3.Cells[21,0]:='採購單別';
+  StringGrid3.Cells[22,0]:='採購單號';
+  StringGrid3.Cells[23,0]:='採購序號';
+  StringGrid3.Cells[24,0]:='採購建立';
+  StringGrid3.Cells[25,0]:='單據日期';
+  StringGrid3.Cells[26,0]:='採購日';
+  StringGrid3.Cells[27,0]:='預交日';
+  StringGrid3.Cells[28,0]:='進貨單別';
+  StringGrid3.Cells[29,0]:='進貨單號';
+  StringGrid3.Cells[30,0]:='進貨序號';
+  StringGrid3.Cells[31,0]:='進貨建立';
+  StringGrid3.Cells[32,0]:='單據日期';
+  StringGrid3.Cells[33,0]:='進貨日';
+  StringGrid3.Cells[34,0]:='驗收日';
+}
+  StringGrid3.Cells[0,0]:='供應商';
+  StringGrid3.Cells[1,0]:='品名';
+  StringGrid3.Cells[2,0]:='請購單別';
+  StringGrid3.Cells[3,0]:='請購單號';
+  StringGrid3.Cells[4,0]:='請購序號';
+  StringGrid3.Cells[5,0]:='請購建立';
+  StringGrid3.Cells[6,0]:='單據日期';
+  StringGrid3.Cells[7,0]:='請購日';
+  StringGrid3.Cells[8,0]:='需求日';
+  StringGrid3.Cells[9,0]:='採購單別';
+  StringGrid3.Cells[10,0]:='採購單號';
+  StringGrid3.Cells[11,0]:='採購序號';
+  StringGrid3.Cells[12,0]:='採購建立';
+  StringGrid3.Cells[13,0]:='單據日期';
+  StringGrid3.Cells[14,0]:='採購日';
+  StringGrid3.Cells[15,0]:='預交日';
+  StringGrid3.Cells[16,0]:='進貨單別';
+  StringGrid3.Cells[17,0]:='進貨單號';
+  StringGrid3.Cells[18,0]:='進貨序號';
+  StringGrid3.Cells[19,0]:='進貨建立';
+  StringGrid3.Cells[20,0]:='單據日期';
+  StringGrid3.Cells[21,0]:='進貨日';
+  StringGrid3.Cells[22,0]:='驗收日';
+
+end;
+
+procedure TForm1.Button17Click(Sender: TObject);
+begin
+  ADOQuery7.close;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('select MA001,MA002,TH007,TH002,TH003,TH004,TH005,TH017,TH029,TG003'); // 查進貨單身   TH017 驗退數量 TH029 驗退碼
+  ADOQuery7.sql.add('from PURTH,PURMA,PURTG');
+  ADOQuery7.sql.add('WHERE TH017>:s1');
+  ADOQuery7.sql.add('and TG003>=:s2');
+  ADOQuery7.sql.add('and TG003<=:s3');
+  ADOQuery7.sql.add('AND TG001=TH001');
+  ADOQuery7.sql.add('AND TG002=TH002');
+  ADOQuery7.sql.add('AND TG005=MA001');
+  ADOQuery7.sql.add('order by MA001');
+  ADOQuery7.Parameters.parambyname('s1').VALUE:=0;
+  ADOQuery7.Parameters.parambyname('s2').VALUE:=Edit4.text;
+  ADOQuery7.Parameters.parambyname('s3').VALUE:=Edit5.text;
+  ADOQuery7.open;
+  k:=7;
+  Label12.CAPTION:=INTTOSTR(ADOQuery7.RECORDCOUNT);
+  Label59.CAPTION:=INTTOSTR(ADOQuery7.RECORDCOUNT);
+end;
+
+procedure TForm1.Button15Click(Sender: TObject);
+begin
+  ADOQuery8.close;
+  ADOQuery8.SQL.Clear;
+  ADOQuery8.SQL.add('select TG002,TG011,MA002,TG035,TH012');                     // 查進貨單頭
+  ADOQuery8.sql.add('from PURTG,PURMA,PURTH');                                   // TG013 確認碼
+  ADOQuery8.sql.add('WHERE TG013=:s1');                                         
+  ADOQuery8.sql.add('AND TG011=:s2');                                            // TG011 發票號碼
+  ADOQuery8.sql.add('AND TG003>=:s3');                                           // TG003 進貨日期
+  ADOQuery8.sql.add('AND TG003<=:s4');
+  ADOQuery8.sql.add('AND TG001=:s5');
+  ADOQuery8.sql.add('AND TH003=:s6');
+  ADOQuery8.sql.add('AND TG001=TH001');
+  ADOQuery8.sql.add('AND TG002=TH002');
+  ADOQuery8.sql.add('AND TG005=MA001');  
+  ADOQuery8.sql.add('order by TG002');
+  ADOQuery8.Parameters.parambyname('s1').VALUE:='Y';
+  ADOQuery8.Parameters.parambyname('s2').VALUE:='';
+  ADOQuery8.Parameters.parambyname('s3').VALUE:=Edit4.text;
+  ADOQuery8.Parameters.parambyname('s4').VALUE:=Edit5.text;
+  ADOQuery8.Parameters.parambyname('s5').VALUE:='340';
+  ADOQuery8.Parameters.parambyname('s6').VALUE:='0001';  
+  ADOQuery8.open;
+  k:=3;
+  Label13.CAPTION:=INTTOSTR(ADOQuery8.RECORDCOUNT);
+  Label110.CAPTION:=INTTOSTR(ADOQuery8.RECORDCOUNT);
+  if ADOQuery8.recordcount>0 then Label32.caption:='無發票號碼';
+end;
+
+procedure TForm1.Button16Click(Sender: TObject);
+begin
+  ADOQuery9.close;
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.add('select TH002,TH003,TH004,TH005,TH031,TH040,MA002,TG035,TH012');        // 查進貨單身
+  ADOQuery9.sql.add('from PURTH,PURTG,PURMA');                                              // TH031 結帳碼
+  ADOQuery9.sql.add('WHERE TH031=:s1');
+  ADOQuery9.sql.add('and TG003>=:s2');
+  ADOQuery9.sql.add('and TG003<=:s3');
+  ADOQuery9.sql.add('and TH001=:s4');
+  ADOQuery9.sql.add('and TH003=:s5');
+  ADOQuery9.sql.add('and TH030=:s6');
+  ADOQuery9.sql.add('and TG005=MA001');
+  ADOQuery9.sql.add('and TH002=TG002');
+  ADOQuery9.sql.add('and TH001=TG001');
+  ADOQuery9.sql.add('order by TH002');
+  ADOQuery9.Parameters.parambyname('s1').VALUE:='N';
+  ADOQuery9.Parameters.parambyname('s2').VALUE:=Edit4.text;
+  ADOQuery9.Parameters.parambyname('s3').VALUE:=Edit5.text;
+  ADOQuery9.Parameters.parambyname('s4').VALUE:='340';
+  ADOQuery9.Parameters.parambyname('s5').VALUE:='0001';
+  ADOQuery9.Parameters.parambyname('s6').VALUE:='Y';
+  ADOQuery9.open;
+  k:=5;
+  Label15.CAPTION:=INTTOSTR(ADOQuery9.RECORDCOUNT);
+  Label112.CAPTION:=INTTOSTR(ADOQuery9.RECORDCOUNT);
+end;
+
+procedure TForm1.Button18Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid1.RowCount do
+    begin
+      for j := 0 to StringGrid1.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid1.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Button9.click;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ADOQuery13.close;
+  ADOQuery13.SQL.Clear;
+  ADOQuery13.SQL.add('select MA001,MA002,TH007,TH002,TH003,TH004,TH005,TH017,TH029,TG003'); // 查進貨單身   TH017 驗退數量 TH029 驗退碼
+  ADOQuery13.sql.add('from PURTH,PURMA,PURTG');
+  ADOQuery13.sql.add('WHERE TH017>:s1');
+  ADOQuery13.sql.add('and TH029=:s2');
+  ADOQuery13.sql.add('AND TG001=TH001');
+  ADOQuery13.sql.add('AND TG002=TH002');
+  ADOQuery13.sql.add('AND TG005=MA001');
+  ADOQuery13.sql.add('order by MA001');
+  ADOQuery13.Parameters.parambyname('s1').VALUE:=0;
+  ADOQuery13.Parameters.parambyname('s2').VALUE:='N';
+  ADOQuery13.open;
+  k:=7;
+  Label36.CAPTION:=INTTOSTR(ADOQuery13.RECORDCOUNT);
+  if ADOQuery13.RECORDCOUNT>0 then Label34.CAPTION:='驗退件未退';
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid4.RowCount do
+    begin
+      for j := 0 to StringGrid4.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid4.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid3.RowCount do
+    begin
+      for j := 0 to StringGrid3.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid3.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.Button19Click(Sender: TObject);
+begin
+  ADOQuery15.close;
+  ADOQuery15.SQL.Clear;
+  ADOQuery15.SQL.add('select TD001,TD002,TD003,TD004,TD005,TD006,TD008,TD015,TD012,TD016');                                           // 查預計進貨日期
+  ADOQuery15.sql.add('from PURTD');
+  ADOQuery15.sql.add('WHERE TD008<>TD015');
+  ADOQuery15.sql.add('AND TD018=:s3');
+  ADOQuery15.sql.add('AND TD001=:s4');
+  ADOQuery15.sql.add('AND TD012>:s1');
+  ADOQuery15.sql.add('AND TD012<:s2');
+  ADOQuery15.sql.add('order by TD012');
+  ADOQuery15.Parameters.parambyname('s1').VALUE:=EDIT4.TEXT;
+  ADOQuery15.Parameters.parambyname('s2').VALUE:=EDIT5.TEXT;
+  ADOQuery15.Parameters.parambyname('s3').VALUE:='Y';
+  ADOQuery15.Parameters.parambyname('s4').VALUE:='330';
+  ADOQuery15.open;
+end;
+
+end.
